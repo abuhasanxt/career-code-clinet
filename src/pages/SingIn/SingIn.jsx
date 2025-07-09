@@ -3,6 +3,7 @@ import { AuthContext } from "../../Contexts/AuthContexts/AuthContext";
 import singIn from "../../assets/lotties/singin.json";
 import Lottie from "lottie-react";
 import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin";
 
 const SingIn = () => {
   const { singInUser } = use(AuthContext);
@@ -65,6 +66,7 @@ const SingIn = () => {
                 <button className="btn btn-neutral mt-4">Sing In</button>
               </fieldset>
             </form>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>
