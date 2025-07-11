@@ -1,21 +1,32 @@
 import React, { use } from "react";
 import { AuthContext } from "../../Contexts/AuthContexts/AuthContext";
+import Swal from "sweetalert2";
 
 const SocialLogin = () => {
   const { singInWithGoogle } = use(AuthContext);
-  const handleGoogleSingIn=()=>{
+  const handleGoogleSingIn = () => {
     singInWithGoogle()
-    .then(result=>{
+      .then((result) => {
         console.log(result);
-    })
-    .catch(error=>{
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Sing In successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => {
         console.log(error);
-    })
-  }
+      });
+  };
   return (
     <div>
       <div className="divider">OR</div>
-      <button onClick={handleGoogleSingIn} className="btn w-full bg-white text-black border-[#e5e5e5]">
+      <button
+        onClick={handleGoogleSingIn}
+        className="btn w-full bg-white text-black border-[#e5e5e5]"
+      >
         <svg
           aria-label="Google logo"
           width="16"
