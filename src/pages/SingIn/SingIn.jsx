@@ -4,9 +4,13 @@ import singIn from "../../assets/lotties/singin.json";
 import Lottie from "lottie-react";
 import Swal from "sweetalert2";
 import SocialLogin from "../Shared/SocialLogin";
+import { useLocation, useNavigate } from "react-router";
 
 const SingIn = () => {
   const { singInUser } = use(AuthContext);
+  const location=useLocation();
+  const navigate=useNavigate();
+  const from=location.state || '/';
 
   const handleSingIn = (e) => {
     e.preventDefault();
@@ -26,6 +30,7 @@ const SingIn = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigate(from)
       })
       .catch((error) => {
         console.log(error);
@@ -66,7 +71,7 @@ const SingIn = () => {
                 <button className="btn btn-neutral mt-4">Sing In</button>
               </fieldset>
             </form>
-            <SocialLogin></SocialLogin>
+            <SocialLogin from={from}></SocialLogin>
           </div>
         </div>
       </div>

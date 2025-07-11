@@ -13,7 +13,7 @@ import { auth } from "../../firebase/firebase.init";
 const googleProvider=new GoogleAuthProvider()
 
 const AuthProvider = ({ children }) => {
-  const [loadig, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
   const createUser = (email, password) => {
     setLoading(true);
@@ -48,7 +48,7 @@ const singOut=()=>{
   }, []);
 
   const authInfo = {
-    loadig,
+    loading,
     user,
     createUser,
     singInUser,

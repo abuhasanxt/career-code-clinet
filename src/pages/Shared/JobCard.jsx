@@ -31,6 +31,10 @@ const JobCard = ({ job }) => {
       </div>
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
+        <div className="flex">
+          <p>JobType: {jobType}</p>
+          <p>category: {category}</p>
+        </div>
         <p>
           Salary: {salaryRange.min} - {salaryRange.max} {salaryRange.currency}
         </p>
@@ -45,7 +49,7 @@ const JobCard = ({ job }) => {
         <div className="card-actions justify-end">
           <Link to={`jobs/${_id}`}>
             {" "}
-            <button className="btn btn-primary">Apply Now</button>
+            <button className="btn btn-primary">Show Details</button>
           </Link>
         </div>
       </div>
